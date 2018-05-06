@@ -1,0 +1,5 @@
+<image class="banner"src="/images/about.jpg" />
+<view class='block'>
+    <view class="block-title">关于我们</view>
+    <text class="block-desc">我是我我是我我是我我是我我是我我是我</text>
+</view>
