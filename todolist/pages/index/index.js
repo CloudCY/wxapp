@@ -21,9 +21,18 @@ Page({
     addText: '',
     curLists: [],
   },
- 
-  showStatus: function(e){
+  onLoad: function(options) {
+status= this.options.status
+  },
+
+  onReady: function(){
+      this.setData({
+        status: status,
+        curLists: this.data.lists
+      })
    
+  },
+  showStatus: function(e){
     const status =  e.currentTarget.dataset.status;
     console.log(status);
     // console.log(this.data.status);
@@ -39,7 +48,19 @@ Page({
         curLists: this.data.lists.filter(item => +item.status === (status - 2))
       })
     }
-   
+  },
+  showCur: function(data){
+    if(this.data.status==='1'){
+      this.setData({
+        lists:data,
+        curLists:data
+      })
+    }else{
+      this.setData({
+        lists:data,
+        curLists:data.filter(item => +item.status === (this.data.status - 2))
+      })
+    }
   },
 
 
@@ -59,6 +80,7 @@ Page({
       lists: temp,
       addShow: false
     })
+    this.showCur(temp)
     wx.showToast({
       title: '添加成功',
       icon: 'success',
@@ -87,6 +109,7 @@ Page({
       if (i == index) {
         if(item.status=='0'){
           item.status='1'
+          this.showCur(temp)
           wx.showToast({
             title: '已完成任务',
             icon: 'success',
@@ -94,6 +117,7 @@ Page({
           })
         }else{
           item.status ='0'
+          this.showCur(temp)
           wx.showToast({
             title: '任务打回重做',
             icon: 'success',
