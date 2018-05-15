@@ -1,14 +1,13 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/stories/stories",
-    "pages/vehicies/show"
+    "pages/stories/index",
+    "pages/stories/show",
+    "pages/vehicles/show"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "汽车试驾",
+    "navigationBarTitleText": "宁皓汽车",
+    "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -24,7 +23,7 @@
       },
       {
         "text": "故事",
-        "pagePath": "pages/stories/stories",
+        "pagePath": "pages/stories/index",
         "iconPath": "assets/icons/event.png",
         "selectedIconPath": "assets/icons/event-active.png"
       }

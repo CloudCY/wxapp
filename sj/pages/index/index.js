@@ -1,24 +1,21 @@
-
-import testDrive from "../../modules/test-drive"
-// 在page里得到app 
+import testDrive from '../../modules/test-drive'
 const app = getApp()
 
 Page({
   data: {
-   slides: []
+    slides: null,
+    entities: null
   },
-  onLoad(){
-    this.setData({
-      slides: app.globalData.slides
-    })
-  },
-  indicatorDots:true,
   testDrive,
   readMore(event) {
-    const id = event.target.dataset.id
     wx.navigateTo({
-      url: `/pages/vehicies/show?id=${id}`
+      url: `/pages/vehicles/show?id=${ event.target.dataset.id }`
+    })
+  },
+  onLoad() {
+    this.setData({
+      slides: app.globalData.slides,
+      entities: app.globalData.vehicles
     })
   }
-  
 })
