@@ -1,0 +1,18 @@
+<import  src="/templates/sprinner.wxml" />
+
+<navigator class="media-box media-box_appmsg" url="/pages/post/show?id={{item.id}}" wx:for="{{entities}}" wx:key="{{item.id}}">
+    <view class="media-box__hd media-box__hd_in-appmsg">
+        <image class="media-box__thumb" src="/assets/images/a.png"></image>
+    </view>
+    <view class="media-box__bd media-box__bd_in-appmsg">
+        <view class="media-box__title">
+            {{item.title.rendered}}
+        </view>
+        <view class="media-box__desc">
+            {{item.excerpt.plaintext}}
+        </view>
+    </view>
+</navigator>
+
+<template is="sprinner" data='{{isLoading}}'>
+</template>
