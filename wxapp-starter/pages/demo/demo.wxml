@@ -1,3 +1,63 @@
-<view>
-  
+<view class="cells__title">标题</view>
+<view class="cells cells_after-title">
+  <view class="cell cell_input">
+    <view class="cell__bd">
+      <input type="text" placeholder="标题" 
+      value="{{entity.title}}"   class="input" bindinput="onInputTitle"/>
+    </view>
+  </view>
+</view>
+<view class="cells__title">正文</view>
+<view class="cells cells_after-title">
+  <view class="cell">
+    <view class="cell__bd">
+      <textarea
+      style="height:6em;"
+      value="{{entity.content}}"
+      class="textarea"
+      placeholder="正文"
+      bindinput="onInputContent">
+    </textarea>
+</view>
+  </view>
+</view>
+
+<view class="cell">
+    <view class="cell__bd">
+        <view class="upload">
+            <view class="uploader__hd">
+                <view class="uploader__info">
+                    1/{{images.length}}
+                </view>
+            </view>
+            <view class="uploader__bd">
+                <view class="uploader__files">
+                    <block wx:for="{{images}}" wx:key="{{item.id}}">
+                        <view class="uploader__file" bindlongtap="longTap">
+                            <image mode="aspectFill" class="uploader__img" data-index="{{index}}" src ="{{item.path}}">
+                            </image>
+                        </view>
+                    </block>
+                </view>
+                <view class="uploader__input-box">
+                    <view class="uploader__input" bindtap="onChooseImage"></view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+
+
+<view class="cells__title">发布</view>
+<view class="cells cells_after-title">
+  <view class="cell cell_switch">
+    <view class="cell__bd">发布</view>
+    <view class="cell__ft">
+      <switch bindchange="onChangeStatus" checked="{{entity.status == 'publish'}}"/>
+    </view>
+  </view>
+</view>
+<view class="btn-area">
+  <button class="btn" loading="{{loading}}" bindtap="onTapSubmitButton" disabled='{{!entity.title||!entity.content}}' type="primary">{{entity.status=='publish'?'发布':'保存'}}</button>
 </view>

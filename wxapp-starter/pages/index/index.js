@@ -1,6 +1,6 @@
 import{
   API_BASE
-}from '../../config/api'
+}from '../../config/api.js'
 
 
 const app = getApp()
@@ -57,13 +57,11 @@ Page({
     const url = `${API_BASE}/${currentPage}`;
     wx.request({
       url: API_BASE,
-      
       success: (res)=>{
         const entities = [
           ...this.data.entities,
           ...res.data.data.articles
         ];
-
         this.setData({
           entities,
           isLoading: false,
