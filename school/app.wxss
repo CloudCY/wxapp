@@ -1,0 +1,16 @@
+@import './weui.wxss';
+
+.weui-msg__icon-area image{
+    width: 183rpx;
+    height: 163rpx;
+}
+.pic{
+    margin-bottom: 0;
+}
+.balance{
+    font-size: 28rpx;
+}
+.money{
+   font-size:46rpx;
+    color: #000;
+}

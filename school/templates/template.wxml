@@ -1,0 +1,6 @@
+<template name="dormInfo">
+   <view class="drom-info weui-flex weui-select">
+       <text class="content">{{name}}</text>
+       <text class="tip {{tip.color}}"> {{tip.content}}</text>
+   </view>
+</template>
